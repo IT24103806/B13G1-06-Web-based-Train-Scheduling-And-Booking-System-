@@ -9,8 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-
-@WebServlet("/PaymentServlet")
 public class PaymentServlet extends HttpServlet {
 
     private PaymentService paymentService;

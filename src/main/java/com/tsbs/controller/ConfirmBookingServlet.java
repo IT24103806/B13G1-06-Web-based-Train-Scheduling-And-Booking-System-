@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/ConfirmBookingServlet")
 public class ConfirmBookingServlet extends HttpServlet {
 
     private BookingService bookingService;

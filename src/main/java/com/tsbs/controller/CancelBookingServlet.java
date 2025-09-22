@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/CancelBookingServlet")
 public class CancelBookingServlet extends HttpServlet {
     private final BookingService bookingService = new BookingService();
 

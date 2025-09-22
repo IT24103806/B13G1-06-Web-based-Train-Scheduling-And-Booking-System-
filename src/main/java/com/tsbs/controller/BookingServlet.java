@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/BookingServlet")
 public class BookingServlet extends HttpServlet {
 
     private BookingService bookingService;
