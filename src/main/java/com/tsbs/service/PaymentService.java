@@ -11,7 +11,7 @@ public class PaymentService {
         return paymentDAO.getPaymentByBooking(bookingId);
     }
 
-    // Example: simple validation wrapper
+    // Validate payment status
     public String checkPaymentStatus(long bookingId) {
         Payment p = paymentDAO.getPaymentByBooking(bookingId);
         if (p == null) {
@@ -24,5 +24,16 @@ public class PaymentService {
         } else {
             return "⌛ Payment still pending for booking " + bookingId;
         }
+    }
+
+    // ✅ New: Make a payment
+    public boolean makePayment(long bookingId, double amount, String method) {
+        Payment payment = new Payment();
+        payment.setBookingId(bookingId);
+        payment.setAmount(amount);
+        payment.setMethod(method);
+        payment.setStatus("INIT"); // default when created
+
+        return paymentDAO.insertPayment(payment);
     }
 }

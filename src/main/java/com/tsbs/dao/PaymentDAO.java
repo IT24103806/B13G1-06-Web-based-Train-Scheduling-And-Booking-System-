@@ -55,4 +55,25 @@ public class PaymentDAO {
         }
         return payments;
     }
+
+    // ✅ New method: Insert a payment
+    public boolean insertPayment(Payment payment) {
+        String sql = "INSERT INTO Payment (booking_id, amount, method, status, gateway_txn_id, created_at) " +
+                "VALUES (?, ?, ?, ?, ?, GETDATE())";  // GETDATE() for SQL Server current time
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setLong(1, payment.getBookingId());
+            ps.setDouble(2, payment.getAmount());
+            ps.setString(3, payment.getMethod());
+            ps.setString(4, payment.getStatus());
+            ps.setString(5, payment.getGatewayTxnId());
+
+            int rows = ps.executeUpdate();
+            return rows > 0; // true if inserted
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

@@ -6,9 +6,17 @@
 <body>
 <h2>Confirm Your Booking</h2>
 <form action="ConfirmBookingServlet" method="post">
-    Booking ID: <input type="text" name="bookingId" required><br><br>
-    Transaction ID: <input type="text" name="txnId" required><br><br>
-    <input type="submit" value="Confirm Booking">
+    <label>Booking ID:</label>
+    <input type="number" name="bookingId" required><br>
+    <button type="submit">Confirm Booking</button>
 </form>
+
+<c:if test="${not empty message}">
+    <p style="color:green;">${message}</p>
+</c:if>
+<c:if test="${not empty error}">
+    <p style="color:red;">${error}</p>
+</c:if>
+
 </body>
 </html>

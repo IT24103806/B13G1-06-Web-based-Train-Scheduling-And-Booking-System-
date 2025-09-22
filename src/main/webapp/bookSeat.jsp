@@ -6,11 +6,19 @@
 <body>
 <h2>Train Booking Form</h2>
 <form action="BookingServlet" method="post">
-    User ID: <input type="text" name="userId" required><br><br>
-    Schedule ID: <input type="text" name="scheduleId" required><br><br>
-    Seat No: <input type="text" name="seatNo" required><br><br>
-    Amount: <input type="text" name="amount" required><br><br>
-    <input type="submit" value="Book Seat">
+    <label>User ID:</label>
+    <input type="number" name="userId" required><br>
+
+    <label>Schedule ID:</label>
+    <input type="number" name="scheduleId" required><br>
+
+    <label>Seat No:</label>
+    <input type="text" name="seatNo" required><br>
+
+    <label>Amount:</label>
+    <input type="number" step="0.01" name="amount" required><br>
+
+    <button type="submit">Book Seat</button>
 </form>
 </body>
 </html>
