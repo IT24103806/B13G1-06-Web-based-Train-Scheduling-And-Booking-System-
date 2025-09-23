@@ -9,7 +9,7 @@ public class DBConnection {
     // Update according to your SQL Server setup
     private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=TrainBookingDB;encrypt=true;trustServerCertificate=true;";
     private static final String USER = "sa"; // 🔑 replace with your SQL login username
-    private static final String PASSWORD = "your_password"; // 🔑 replace with your SQL password
+    private static final String PASSWORD = "123"; // 🔑 replace with your SQL password
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
