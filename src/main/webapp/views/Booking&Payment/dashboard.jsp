@@ -499,7 +499,7 @@
     <p class="section-subtitle">Choose from our comprehensive range of services designed to make your travel experience effortless</p>
 
     <div class="cards-grid">
-        <div class="action-card" onclick="location.href='bookSeat.jsp'">
+        <div class="action-card" onclick="location.href='/views/Booking&Payment/bookSeat.jsp'">
             <div class="card-icon">
                 <i class="fas fa-ticket-alt"></i>
             </div>
@@ -508,7 +508,7 @@
             <button class="card-button">Book Now</button>
         </div>
 
-        <div class="action-card" onclick="location.href='confirmBooking.jsp'">
+        <div class="action-card" onclick="location.href='/views/Booking&Payment/confirmBooking.jsp'">
             <div class="card-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
@@ -517,7 +517,7 @@
             <button class="card-button">Confirm</button>
         </div>
 
-        <div class="action-card" onclick="location.href='cancelBooking.jsp'">
+        <div class="action-card" onclick="location.href='/views/Booking&Payment/cancelBooking.jsp'">
             <div class="card-icon">
                 <i class="fas fa-times-circle"></i>
             </div>
@@ -526,7 +526,7 @@
             <button class="card-button">Cancel</button>
         </div>
 
-        <div class="action-card" onclick="location.href='checkPayment.jsp'">
+        <div class="action-card" onclick="location.href='/views/Booking&Payment/checkPayment.jsp'">
             <div class="card-icon">
                 <i class="fas fa-credit-card"></i>
             </div>

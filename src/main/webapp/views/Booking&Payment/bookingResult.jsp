@@ -6,6 +6,6 @@
 <body>
 <h2>Booking Result</h2>
 <p>${resultMessage}</p>
-<a href="bookSeat.jsp">Book Another Seat</a>
+<a href="/views/Booking&Payment/bookSeat.jsp">Book Another Seat</a>
 </body>
 </html>

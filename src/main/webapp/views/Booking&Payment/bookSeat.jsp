@@ -425,7 +425,7 @@
 </div>
 
 <!-- Back to Dashboard Button -->
-<a href="dashboard.jsp" class="back-button">
+<a href="/views/Booking&Payment/dashboard.jsp" class="back-button">
     <i class="fas fa-arrow-left"></i>
     Back to Dashboard
 </a>

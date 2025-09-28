@@ -23,6 +23,6 @@
     <p><b>Txn ID:</b> ${payment.gatewayTxnId}</p>
 </c:if>
 
-<a href="dashboard.jsp">🔙 Back to Dashboard</a>
+<a href="/views/Booking&Payment/dashboard.jsp">🔙 Back to Dashboard</a>
 </body>
 </html>
