@@ -323,7 +323,7 @@
                     this.showSuccess('Login successful! Redirecting...');
 
                     setTimeout(() => {
-                        window.location.href = '/';
+                        window.location.href = '..';
                     }, 1500);
                 } else {
                     const error = await response.text();
