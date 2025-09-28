@@ -3,7 +3,6 @@ package com.tsbs.controller;
 import com.tsbs.service.BookingService;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,21 +23,21 @@ public class ConfirmBookingServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             long bookingId = Long.parseLong(request.getParameter("bookingId"));
-            String txnId = "TXN" + System.currentTimeMillis(); // fake gateway txn id
+            String txnId = "TXN" + System.currentTimeMillis();
 
             boolean success = Boolean.parseBoolean(bookingService.confirmBooking(bookingId, txnId));
 
             if (success) {
                 request.setAttribute("message", "Booking confirmed successfully!");
-                request.getRequestDispatcher("confirmBooking.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/Booking&Payment/confirmBooking.jsp").forward(request, response);
             } else {
                 request.setAttribute("error", "Booking confirmation failed.");
-                request.getRequestDispatcher("confirmBooking.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/Booking&Payment/confirmBooking.jsp").forward(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "Error: " + e.getMessage());
-            request.getRequestDispatcher("confirmBooking.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/Booking&Payment/confirmBooking.jsp").forward(request, response);
         }
     }
 }
