@@ -4,7 +4,6 @@ import com.tsbs.model.Booking;
 import com.tsbs.service.BookingService;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,7 +23,7 @@ public class BookingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            int userId = Integer.parseInt(request.getParameter("userId"));  // from session ideally
+            int userId = Integer.parseInt(request.getParameter("userId"));
             int scheduleId = Integer.parseInt(request.getParameter("scheduleId"));
             String seatNo = request.getParameter("seatNo");
             double amount = Double.parseDouble(request.getParameter("amount"));
@@ -33,15 +32,15 @@ public class BookingServlet extends HttpServlet {
 
             if (booking != null) {
                 request.setAttribute("booking", booking);
-                request.getRequestDispatcher("bookingResult.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/Booking&Payment/bookingResult.jsp").forward(request, response);
             } else {
                 request.setAttribute("error", "Booking failed! Try another seat.");
-                request.getRequestDispatcher("bookingResult.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/Booking&Payment/bookingResult.jsp").forward(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "Error: " + e.getMessage());
-            request.getRequestDispatcher("bookingResult.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/Booking&Payment/bookingResult.jsp").forward(request, response);
         }
     }
 }
