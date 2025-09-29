@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <html>
 <head>
     <title>Submit Feedback</title>
@@ -12,7 +12,7 @@
     <h2 class="title">Submit Feedback</h2>
     <c:if test="${not empty error}"><div class="error">${error}</div></c:if>
     <c:if test="${not empty message}"><div class="msg">${message}</div></c:if>
-    <form method="post" action="${pageContext.request.contextPath}/FeedbackServlet">
+    <form method="post" action="${pageContext.request.contextPath}/feedback">
         <input type="text" name="subject" placeholder="Subject" required />
         <textarea name="message" placeholder="Your feedback" rows="6" required></textarea>
         <button type="submit" class="btn btn-primary">Send Feedback</button>

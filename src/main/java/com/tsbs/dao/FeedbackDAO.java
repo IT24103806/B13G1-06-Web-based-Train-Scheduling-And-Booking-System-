@@ -167,10 +167,9 @@ public class FeedbackDAO {
 
     public List<Feedback> getRecentFeedback(int limit) {
         List<Feedback> list = new ArrayList<>();
-        String sql = "SELECT TOP (?) * FROM Feedback ORDER BY created_at DESC";
+        String sql = "SELECT TOP " + limit + " * FROM Feedback ORDER BY created_at DESC";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, limit);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Feedback(
