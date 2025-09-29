@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-<div class="card">
+<div class="card" >
   <h2>Place Seat on Hold</h2>
   <c:if test="${not empty message}"><div class="msg">${message}</div></c:if>
   <form method="post" action="${pageContext.request.contextPath}/ReservationServlet">
