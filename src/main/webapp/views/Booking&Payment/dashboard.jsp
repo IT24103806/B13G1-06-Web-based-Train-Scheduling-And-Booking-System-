@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>TSBS Dashboard - Train Schedule Booking System</title>
@@ -18,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -70,7 +71,6 @@
             color: #0078d7;
         }
 
-        /* Hero Section */
         .hero-section {
             margin-top: 80px;
             padding: 60px 20px;
@@ -99,7 +99,6 @@
             animation: slideInUp 1s ease-out 0.2s both;
         }
 
-        /* Image Slider */
         .slider-container {
             position: relative;
             max-width: 1000px;
@@ -162,6 +161,7 @@
             transform: translateX(-50%);
             display: flex;
             gap: 10px;
+            z-index: 10;
         }
 
         .nav-dot {
@@ -177,7 +177,6 @@
             background: white;
         }
 
-        /* Action Cards */
         .actions-section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -302,7 +301,6 @@
             box-shadow: 0 10px 25px rgba(0, 120, 215, 0.4);
         }
 
-        /* Footer */
         .footer {
             background: rgba(0, 0, 0, 0.2);
             padding: 40px 20px;
@@ -332,7 +330,6 @@
             color: white;
         }
 
-        /* Animations */
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -358,7 +355,6 @@
             }
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5em;
@@ -377,7 +373,6 @@
             }
         }
 
-        /* Floating Elements */
         .floating-elements {
             position: fixed;
             top: 0;
@@ -430,14 +425,12 @@
     </style>
 </head>
 <body>
-<!-- Floating Background Elements -->
 <div class="floating-elements">
     <div class="floating-element"></div>
     <div class="floating-element"></div>
     <div class="floating-element"></div>
 </div>
 
-<!-- Navigation -->
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
@@ -453,14 +446,12 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
 <section class="hero-section">
     <div class="hero-content">
-        <h1 class="hero-title">🚆 Train Schedule Booking System</h1>
+        <h1 class="hero-title">Train Schedule Booking System</h1>
         <p class="hero-subtitle">Experience seamless train travel with our advanced booking and payment management system</p>
     </div>
 
-    <!-- Image Slider -->
     <div class="slider-container">
         <div class="slider">
             <div class="slide active">
@@ -493,13 +484,12 @@
     </div>
 </section>
 
-<!-- Actions Section -->
-<section class="actions-section">
+<section class="actions-section" id="services">
     <h2 class="section-title">Booking & Payment Management</h2>
     <p class="section-subtitle">Choose from our comprehensive range of services designed to make your travel experience effortless</p>
 
     <div class="cards-grid">
-        <div class="action-card" onclick="location.href='/views/Booking&Payment/bookSeat.jsp'">
+        <div class="action-card" onclick="location.href='${pageContext.request.contextPath}/views/Booking&Payment/bookSeat.jsp'">
             <div class="card-icon">
                 <i class="fas fa-ticket-alt"></i>
             </div>
@@ -508,7 +498,7 @@
             <button class="card-button">Book Now</button>
         </div>
 
-        <div class="action-card" onclick="location.href='/views/Booking&Payment/confirmBooking.jsp'">
+        <div class="action-card" onclick="location.href='${pageContext.request.contextPath}/views/Booking&Payment/confirmBooking.jsp'">
             <div class="card-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
@@ -517,7 +507,7 @@
             <button class="card-button">Confirm</button>
         </div>
 
-        <div class="action-card" onclick="location.href='/views/Booking&Payment/cancelBooking.jsp'">
+        <div class="action-card" onclick="location.href='${pageContext.request.contextPath}/views/Booking&Payment/cancelBooking.jsp'">
             <div class="card-icon">
                 <i class="fas fa-times-circle"></i>
             </div>
@@ -526,18 +516,17 @@
             <button class="card-button">Cancel</button>
         </div>
 
-        <div class="action-card" onclick="location.href='/views/Booking&Payment/checkPayment.jsp'">
+        <div class="action-card" onclick="location.href='${pageContext.request.contextPath}/views/Booking&Payment/checkPayment.jsp'">
             <div class="card-icon">
                 <i class="fas fa-credit-card"></i>
             </div>
-            <h3 class="card-title">Payment Status</h3>
-            <p class="card-description">Track your payment status, view transaction history, and manage your billing information securely.</p>
-            <button class="card-button">Check Status</button>
+            <h3 class="card-title">Payment</h3>
+            <p class="card-description">Complete your booking with secure payment. Multiple payment methods available for your convenience.</p>
+            <button class="card-button">Pay Now</button>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-links">
@@ -546,12 +535,11 @@
             <a href="#support">Support</a>
             <a href="#help">Help Center</a>
         </div>
-        <p>&copy; 2024 Train Schedule Booking System. All rights reserved. | Designed with ❤️ for exceptional travel experiences</p>
+        <p>&copy; 2024 Train Schedule Booking System. All rights reserved.</p>
     </div>
 </footer>
 
 <script>
-    // Image Slider Functionality
     let slideIndex = 1;
     let slideInterval;
 
@@ -583,13 +571,11 @@
         slideInterval = setInterval(nextSlide, 4000);
     }
 
-    // Initialize slider
     document.addEventListener('DOMContentLoaded', function() {
         showSlide(slideIndex);
         autoSlide();
     });
 
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -603,7 +589,6 @@
         });
     });
 
-    // Add scroll effect to navbar
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 100) {
@@ -613,7 +598,6 @@
         }
     });
 
-    // Intersection Observer for animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -628,7 +612,6 @@
         });
     }, observerOptions);
 
-    // Observe all cards for animation
     document.querySelectorAll('.action-card').forEach((card, index) => {
         card.style.animationDelay = `${index * 0.1}s`;
         observer.observe(card);
